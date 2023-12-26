@@ -1,7 +1,7 @@
-import React from 'react'
+import Layout from '../../Components/Layout'
 
 export default function Error404() {
   return (
-    <div>Error404</div>
+    <Layout>Not Found</Layout>
   )
 }

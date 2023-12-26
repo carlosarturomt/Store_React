@@ -1,7 +1,7 @@
-import React from 'react'
+import Layout from "../../Components/Layout";
 
 export default function MyOrder() {
   return (
-    <div>MyOrder</div>
+    <Layout>MyOrder</Layout>
   )
 }

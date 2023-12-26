@@ -1,6 +1,5 @@
 import { NavLink, useLocation } from "react-router-dom";
 import { linksNavBar, linksAccount } from "./links"
-import { ICONS } from "./icons";
 import { useState } from "react";
 
 const NavLinkIcons = (props) => {
@@ -24,25 +23,20 @@ const NavLinkIcons = (props) => {
       <span
         onMouseEnter={() => setIcons(icon_fill)}
         onMouseLeave={() => setIcons(icon_border)}
-      >
-        {label}
-        {icons}
-      </span>
+      > {label} {icons} </span>
     </NavLink>
   )
 }
 
 export default function Navigation() {
   return (
-    <nav className="flex justify-between items-center w-full text-sm font-light px-2 fixed z-10">
+    <nav className="flex justify-between items-center w-full text-sm font-light px-2 fixed z-10 top-0">
       <ul className="flex items-center gap-2">
         <NavLink
           to='/'
           className={`font-semibold text-lg flex items-center material-symbols-outlined my-2 py-1 px-2 rounded-md`}
         >
-          <span>
-            Shopi
-          </span>
+          <span>Shopi</span>
         </NavLink>
 
         {linksNavBar.map((data) => <NavLinkIcons data={data} key={data.label} />)}

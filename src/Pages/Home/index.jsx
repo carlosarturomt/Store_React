@@ -1,9 +1,11 @@
-import React from 'react'
+import Card from "../../Components/Card/inex"
+import Layout from "../../Components/Layout"
 
 export default function Home() {
   return (
-    <div>
+    <Layout>
       Home
-    </div>
+      <Card />
+    </Layout>
   )
 }
