@@ -1,13 +1,14 @@
+import { useContext, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { linksNavBar, linksAccount } from "./links"
-import { useState } from "react";
+import { ShoppingCartContext } from "../../Context";
+import { ICONS } from "./icons";
 
 const NavLinkIcons = (props) => {
   const { data } = props
   const { route, condition, icon_border, icon_fill, label } = data
   const location = useLocation().pathname;
   const [icons, setIcons] = useState(icon_border)
-
   return (
     <NavLink
       to={route}
@@ -29,8 +30,10 @@ const NavLinkIcons = (props) => {
 }
 
 export default function Navigation() {
+  const context = useContext(ShoppingCartContext)
+
   return (
-    <nav className="flex justify-between items-center w-full text-sm font-light px-2 fixed z-10 top-0">
+    <nav className="flex justify-between items-center w-full text-sm font-light px-4 fixed z-10 top-0 bg-white">
       <ul className="flex items-center gap-2">
         <NavLink
           to='/'
@@ -43,6 +46,22 @@ export default function Navigation() {
       </ul>
       <ul className="flex items-center gap-2">
         {linksAccount.map((data) => <NavLinkIcons data={data} key={data.label} />)}
+
+        <NavLink
+          to='/'
+          className={`font-semibold text-lg flex items-center material-symbols-outlined my-2 py-1 px-2 rounded-md`}
+        >
+          <span
+            className="flex flex-col justify-center items-center border-text font-extrabold text-xl relative"
+          >
+            {context.count != 0 ?
+              <>
+                <i className="absolute -top-5 z-10">{context.count}</i>
+                <i className="absolute -top-4">{ICONS.shopping.fill}</i>
+              </>
+              : <i className="absolute -top-4">{ICONS.shopping.border}</i>}
+          </span>
+        </NavLink>
       </ul>
     </nav>
   )

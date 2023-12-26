@@ -1,3 +1,23 @@
+/* https://www.color-hex.com/color/40147c  --- COLORS */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+li,
+span {
+  color: #200a3e;
+}
+
+.border-text {
+  color: white !important;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #200a3e;
+}

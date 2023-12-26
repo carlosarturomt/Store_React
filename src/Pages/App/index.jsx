@@ -1,4 +1,5 @@
 import { HashRouter, useRoutes } from "react-router-dom"
+import { ShoppingCartProvider } from "../../Context"
 import Home from "../Home"
 import MyAccount from "../MyAccount"
 import MyOrder from "../MyOrder"
@@ -20,10 +21,12 @@ const AppRoutes = () => {
 
 export default function App() {
   return (
-    <HashRouter>
-      <Navigation />
-      <AppRoutes />
-    </HashRouter>
+    <ShoppingCartProvider>
+      <HashRouter>
+        <Navigation />
+        <AppRoutes />
+      </HashRouter>
+    </ShoppingCartProvider>
   )
 }
 

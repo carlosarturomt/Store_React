@@ -55,12 +55,6 @@ const linksAccount = [
     label: 'Sign in',
     route: '/sign-in',
     icon: ''
-  },
-  {
-    label: '',
-    route: '/',
-    icon_border: ICONS.home.border,
-    icon_fill: ICONS.home.fill
   }
 ]
 
