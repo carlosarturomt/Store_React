@@ -4,6 +4,7 @@ import MyAccount from "../MyAccount"
 import MyOrder from "../MyOrder"
 import MyOrders from "../MyOrders"
 import Error404 from "../Error"
+import Navigation from "../../Components/Navigation"
 
 const AppRoutes = () => {
   let routes = useRoutes([
@@ -20,6 +21,7 @@ const AppRoutes = () => {
 export default function App() {
   return (
     <HashRouter>
+      <Navigation />
       <AppRoutes />
     </HashRouter>
   )

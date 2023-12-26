@@ -5,28 +5,28 @@ import { useState } from "react";
 
 const NavLinkIcons = (props) => {
   const { data } = props
-  const { route, condition, symbol, label } = data
+  const { route, condition, icon_border, icon_fill, label } = data
   const location = useLocation().pathname;
-
-  const [icon, setIcon] = useState()
+  const [icons, setIcons] = useState(icon_border)
 
   return (
     <NavLink
       to={route}
       className={
         ((condition ? location.includes(condition) : location === route)
-          ? 'bg-[#231397] text-gray-50 '
-          : 'bg-[#f1f3f6] hover:bg-[#231397] hover:text-gray-50 animate-fadeIn--bg-blue ')
+          ? ' text-gray-900 font-semibold'
+          : ' hover:hover:font-medium')
         + ` flex items-center material-symbols-outlined my-2 py-1 px-2 rounded-md text-1xl `
         + ' justify-center'
       }
     >
       {/* {icon ? icon : location === '/home' ? ICONS.home.fill : ICONS.home.border} */}
-      <span className="text-base pl-2 uppercase"
-        onMouseEnter={() => setIcon(ICONS.home.fill)}
-        onMouseLeave={() => setIcon()}>
+      <span
+        onMouseEnter={() => setIcons(icon_fill)}
+        onMouseLeave={() => setIcons(icon_border)}
+      >
         {label}
-        {symbol}
+        {icons}
       </span>
     </NavLink>
   )
@@ -34,11 +34,20 @@ const NavLinkIcons = (props) => {
 
 export default function Navigation() {
   return (
-    <nav>
-      <ul>
+    <nav className="flex justify-between items-center w-full text-sm font-light px-2 fixed z-10">
+      <ul className="flex items-center gap-2">
+        <NavLink
+          to='/'
+          className={`font-semibold text-lg flex items-center material-symbols-outlined my-2 py-1 px-2 rounded-md`}
+        >
+          <span>
+            Shopi
+          </span>
+        </NavLink>
+
         {linksNavBar.map((data) => <NavLinkIcons data={data} key={data.label} />)}
       </ul>
-      <ul>
+      <ul className="flex items-center gap-2">
         {linksAccount.map((data) => <NavLinkIcons data={data} key={data.label} />)}
       </ul>
     </nav>

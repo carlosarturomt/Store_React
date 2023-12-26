@@ -1,9 +1,6 @@
+import { ICONS } from "./icons";
+
 const linksNavBar = [
-  {
-    label: 'Shopi',
-    route: '/',
-    icon: ''
-  },
   {
     label: 'All',
     route: '/',
@@ -40,7 +37,7 @@ const linksNavBar = [
 const linksAccount = [
   {
     label: 'artur@shopi.com',
-    route: '/',
+    route: '/my-account',
     icon: ''
   },
   {
@@ -50,8 +47,9 @@ const linksAccount = [
   },
   {
     label: 'My Account',
-    condition: '/my-account',
-    icon: ''
+    route: '/my-account',
+    /*  icon_border: ICONS.account.border,
+     icon_fill: ICONS.account.fill */
   },
   {
     label: 'Sign in',
@@ -59,9 +57,10 @@ const linksAccount = [
     icon: ''
   },
   {
-    label: 'test',
+    label: '',
     route: '/',
-    icon: 'ICONS.home'
+    icon_border: ICONS.home.border,
+    icon_fill: ICONS.home.fill
   }
 ]
 
