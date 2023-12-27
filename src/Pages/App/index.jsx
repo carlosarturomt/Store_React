@@ -6,6 +6,7 @@ import MyOrder from "../MyOrder"
 import MyOrders from "../MyOrders"
 import Error404 from "../Error"
 import Navigation from "../../Components/Navigation"
+import CheckoutSideMenu from "../../Components/CheckoutSideMenu"
 
 const AppRoutes = () => {
   let routes = useRoutes([
@@ -23,8 +24,8 @@ export default function App() {
   return (
     <ShoppingCartProvider>
       <HashRouter>
-        <Navigation />
         <AppRoutes />
+        <Navigation />
       </HashRouter>
     </ShoppingCartProvider>
   )
