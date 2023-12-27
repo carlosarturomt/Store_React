@@ -5,10 +5,15 @@ import { ICONS } from "../../assets/icons"
 export default function Card(data) {
   const context = useContext(ShoppingCartContext)
 
+  const showProduct = (productDetail) => {
+    context.openProductDetail()
+    context.setProductToShow(productDetail)
+  }
+
   return (
     <div
       className='bg-white w-56 h-60 rounded-lg cursor-pointer'
-      onClick={() => context.openProductDetail()}
+      onClick={() => showProduct(data.data)}
     >
       <figure className='relative mb-2 w-full h-4/5'>
         <span className='absolute bottom-0 left-0 bg-white/60 rounded-lg text-black text-xs m-2 px-2 py-1'>{data.data.category.name}</span>
@@ -20,9 +25,9 @@ export default function Card(data) {
           {ICONS.add.border}
         </div>
       </figure>
-      <p className='flex justify-between'>
-        <span className='text-sm font-light'>{data.data.title}</span>
-        <span className='text-lg font-semibold'>${data.data.price}.00</span>
+      <p className='flex justify-between text-sm '>
+        <span className='font-light'>{data.data.title}</span>
+        <span className='font-semibold'>${data.data.price}.00</span>
       </p>
     </div>
   )

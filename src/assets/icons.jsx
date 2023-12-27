@@ -14,6 +14,6 @@ export const ICONS = {
     border: <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24"><path fill="#200a3e" d="M11 13H5v-2h6V5h2v6h6v2h-6v6h-2z" /></svg>
   },
   close: {
-    border: <svg xmlns="http://www.w3.org/2000/svg" width="26.66" height="26.66" viewBox="0 0 24 24"><path fill="#200a3e" d="M6.4 19L5 17.6l5.6-5.6L5 6.4L6.4 5l5.6 5.6L17.6 5L19 6.4L13.4 12l5.6 5.6l-1.4 1.4l-5.6-5.6z" /></svg>
+    border: <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="#200a3e" d="M6.4 19L5 17.6l5.6-5.6L5 6.4L6.4 5l5.6 5.6L17.6 5L19 6.4L13.4 12l5.6 5.6l-1.4 1.4l-5.6-5.6z" /></svg>
   },
 }
