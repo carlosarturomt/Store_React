@@ -1,15 +1,21 @@
 import { useContext } from 'react'
 import { ShoppingCartContext } from '../../Context'
 import { ICONS } from '../../assets/icons'
-import './styles.css'
+import { totalPrice } from '../../Utils'
 import OrderCard from '../OrderCard'
+import './styles.css'
 
 export default function CheckoutSideMenu() {
   const context = useContext(ShoppingCartContext)
 
   const handleDelete = (id) => {
-    const filteredProducts = context.cardProducts.filter(product => product.id != id)
+    const filteredProducts = context.cartProducts.filter(product => product.id != id)
+    context.setCartProducts(filteredProducts)
   }
+
+  /* const plusProduct = (id) => {
+    console.log(context.cartProducts)
+  } */
 
   return (
     <aside
@@ -30,12 +36,29 @@ export default function CheckoutSideMenu() {
           context.cartProducts.map(product =>
             <OrderCard
               key={product.id}
+              id={product.id}
               title={product.title}
               imageUrl={product.images}
               price={product.price}
+              handleDelete={handleDelete}
+            //plus={plusProduct}
             />
           )
         }
+      </div>
+
+      <div className='px-4'>
+        <p className='flex justify-between items-center'>
+          <span className='text-sm font-light'>Total:</span>
+          {/* <span>${totalPrice(context.cartProducts)}</span> */}
+          <p className='font-medium text-[#40147c] flex text-2xl'>
+            ${totalPrice(context.cartProducts)}.
+            <span className='text-xs flex flex-col justify-center pt-1 leading-[0.666rem]'>
+              <span>00</span>
+              <span className='uppercase font-light'>mxn</span>
+            </span>
+          </p>
+        </p>
       </div>
 
     </aside>
