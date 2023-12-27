@@ -18,10 +18,9 @@ export default function Home() {
 
   return (
     <Layout>
-      Home
       <div className="max-w-screen-lg flex">
         <div
-          className={`${context.isProductDetailOpen || context.isCheckoutSideMenuOpen ? 'grid-cols-3 ' : 'grid-cols-4 '} flex flex-col items-center justify-center md:grid gap-4 w-full max-w-screen-lg`}
+          className={`${context.isProductDetailOpen || context.isCheckoutSideMenuOpen ? 'grid-cols-3 2xl:grid-cols-4  mr-[242.0px] 2xl:mr-[0px]' : 'grid-cols-4 '} flex flex-col items-center justify-center md:grid gap-4 w-full max-w-screen-lg`}
         >
           {
             items?.map((item => <Card key={item.id} data={item} />))

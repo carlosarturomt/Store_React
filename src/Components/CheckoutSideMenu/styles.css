@@ -1,6 +1,7 @@
 .checkout__side--menu {
-  /* position: fixed; */
-  width: 360px;
-  height: calc(100vh - 68px);
-  top: 68px;
+  position: fixed;
+  width: 276px;
+  height: calc(100vh - 98px);
+  top: 78px;
+  right: 142.0px !important;
 }

@@ -6,7 +6,10 @@ import OrderCard from '../OrderCard'
 
 export default function CheckoutSideMenu() {
   const context = useContext(ShoppingCartContext)
-  console.log('Card: ', context.cartProducts);
+
+  const handleDelete = (id) => {
+    const filteredProducts = context.cardProducts.filter(product => product.id != id)
+  }
 
   return (
     <aside
