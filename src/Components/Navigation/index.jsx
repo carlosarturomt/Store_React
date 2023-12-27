@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { linksNavBar, linksAccount } from "./links"
 import { ShoppingCartContext } from "../../Context";
-import { ICONS } from "./icons";
+import { ICONS } from "../../assets/icons";
 
 const NavLinkIcons = (props) => {
   const { data } = props
@@ -49,17 +49,15 @@ export default function Navigation() {
 
         <NavLink
           to='/'
-          className={`font-semibold text-lg flex items-center material-symbols-outlined my-2 py-1 px-2 rounded-md`}
+          className={`font-semibold text-base flex items-center material-symbols-outlined my-2 py-1 px-2 rounded-md`}
         >
           <span
-            className="flex flex-col justify-center items-center border-text font-extrabold text-xl relative"
+            className="flex flex-col justify-center items-center font-extrabold"
           >
-            {context.count != 0 ?
-              <>
-                <i className="absolute -top-5 z-10">{context.count}</i>
-                <i className="absolute -top-4">{ICONS.shopping.fill}</i>
-              </>
-              : <i className="absolute -top-4">{ICONS.shopping.border}</i>}
+            <div className="flex items-center">
+              {context.count != 0 ? <i>{ICONS.shopping.fill}</i> : <i>{ICONS.shopping.border}</i>}
+              <i className={context.count != 0 ? '' : 'border-text'}>{context.count}</i>
+            </div>
           </span>
         </NavLink>
       </ul>
