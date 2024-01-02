@@ -71,8 +71,8 @@ export default function Navigation() {
             className="flex flex-col justify-center items-center font-extrabold"
           >
             <div className="flex items-center">
-              {context.count != 0 ? <i>{ICONS.shopping.fill}</i> : <i>{ICONS.shopping.border}</i>}
-              <i className={context.count != 0 ? '' : 'border-text'}>{context.count}</i>
+              {context.cartProducts.length != 0 ? <i>{ICONS.shopping.fill}</i> : <i>{ICONS.shopping.border}</i>}
+              <i className={context.cartProducts.length != 0 ? '' : 'border-text'}>{context.cartProducts.length}</i>
             </div>
           </span>
         </NavLink>
