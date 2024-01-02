@@ -1,4 +1,5 @@
 import { useContext } from 'react'
+import { Link } from 'react-router-dom'
 import { ShoppingCartContext } from '../../Context'
 import { ICONS } from '../../assets/icons'
 import { totalPrice } from '../../Utils'
@@ -11,6 +12,18 @@ export default function CheckoutSideMenu() {
   const handleDelete = (id) => {
     const filteredProducts = context.cartProducts.filter(product => product.id != id)
     context.setCartProducts(filteredProducts)
+  }
+
+  const handleCheckout = () => {
+    const orderToAdd = {
+      date: '01.02.23',
+      products: context.cartProducts,
+      totalProducts: context.cartProducts.length,
+      totalPrice: totalPrice(context.cartProducts)
+    }
+
+    context.setOrder([...context.order, orderToAdd])
+    context.setCartProducts([])
   }
 
   /* const plusProduct = (id) => {
@@ -31,7 +44,7 @@ export default function CheckoutSideMenu() {
         </div>
       </div>
 
-      <div className='flex flex-col mt-3 overflow-y-scroll pl-3'>
+      <div className='flex flex-col mt-3 overflow-y-scroll pl-3 flex-1 gap-2'>
         {
           context.cartProducts.map(product =>
             <OrderCard
@@ -51,14 +64,21 @@ export default function CheckoutSideMenu() {
         <p className='flex justify-between items-center'>
           <span className='text-sm font-light'>Total:</span>
           {/* <span>${totalPrice(context.cartProducts)}</span> */}
-          <p className='font-medium text-[#40147c] flex text-2xl'>
+          <span className='font-medium text-[#40147c] flex text-2xl'>
             ${totalPrice(context.cartProducts)}.
             <span className='text-xs flex flex-col justify-center pt-1 leading-[0.666rem]'>
               <span>00</span>
               <span className='uppercase font-light'>mxn</span>
             </span>
-          </p>
+          </span>
         </p>
+
+        <Link to='/my-orders/last'>
+          <button
+            className='my-3 w-full bg-[#40147c] hover:bg-[#200a3e] text-white rounded-lg py-1'
+            onClick={() => handleCheckout()}
+          >Checkout</button>
+        </Link>
       </div>
 
     </aside>
