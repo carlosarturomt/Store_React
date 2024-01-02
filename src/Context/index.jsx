@@ -35,7 +35,6 @@ export function ShoppingCartProvider({ children }) {
 
   /* Get products by category */
   const [searchByCategory, setSearchByCategory] = useState(null)
-  console.log(filteredItems);
 
   useEffect(() => {
     fetch(`${apiUrl}/products`)

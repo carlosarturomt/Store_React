@@ -24,11 +24,8 @@ export default function CheckoutSideMenu() {
 
     context.setOrder([...context.order, orderToAdd])
     context.setCartProducts([])
+    context.setSearchByTitle(null)
   }
-
-  /* const plusProduct = (id) => {
-    console.log(context.cartProducts)
-  } */
 
   return (
     <aside
@@ -63,7 +60,6 @@ export default function CheckoutSideMenu() {
       <div className='px-4'>
         <p className='flex justify-between items-center'>
           <span className='text-sm font-light'>Total:</span>
-          {/* <span>${totalPrice(context.cartProducts)}</span> */}
           <span className='font-medium text-[#40147c] flex text-2xl'>
             ${totalPrice(context.cartProducts)}.
             <span className='text-xs flex flex-col justify-center pt-1 leading-[0.666rem]'>
