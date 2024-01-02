@@ -2,11 +2,6 @@ import { ICONS } from "../../assets/icons";
 
 const linksNavBar = [
   {
-    label: 'All',
-    route: '/',
-    icon: ''
-  },
-  {
     label: 'Clothes',
     route: '/clothes',
     condition: '/clothes',

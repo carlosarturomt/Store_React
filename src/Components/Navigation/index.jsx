@@ -9,9 +9,12 @@ const NavLinkIcons = (props) => {
   const { route, condition, icon_border, icon_fill, label } = data
   const location = useLocation().pathname;
   const [icons, setIcons] = useState(icon_border)
+  const context = useContext(ShoppingCartContext)
+
   return (
     <NavLink
       to={route}
+      onClick={() => context.setSearchByCategory(label)}
       className={
         ((condition ? location.includes(condition) : location === route)
           ? ' text-gray-900 font-semibold'
@@ -20,7 +23,6 @@ const NavLinkIcons = (props) => {
         + ' justify-center'
       }
     >
-      {/* {icon ? icon : location === '/home' ? ICONS.home.fill : ICONS.home.border} */}
       <span
         onMouseEnter={() => setIcons(icon_fill)}
         onMouseLeave={() => setIcons(icon_border)}
@@ -30,6 +32,7 @@ const NavLinkIcons = (props) => {
 }
 
 export default function Navigation() {
+  const location = useLocation().pathname;
   const context = useContext(ShoppingCartContext)
 
   return (
@@ -40,6 +43,19 @@ export default function Navigation() {
           className={`font-semibold text-lg flex items-center material-symbols-outlined my-2 py-1 px-2 rounded-md`}
         >
           <span>Shopi</span>
+        </NavLink>
+
+        <NavLink
+          to='/'
+          className={
+            (('/' ? location.includes('/') : location === '/')
+              ? ' text-gray-900 font-semibold'
+              : ' hover:hover:font-medium')
+            + ` flex items-center justify-center material-symbols-outlined my-2 py-1 px-2 rounded-md text-1xl `
+          }
+        >
+          <span
+          >All</span>
         </NavLink>
 
         {linksNavBar.map((data) => <NavLinkIcons data={data} key={data.label} />)}

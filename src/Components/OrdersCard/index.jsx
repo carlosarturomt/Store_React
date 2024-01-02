@@ -6,7 +6,7 @@ export default function OrdersCard(props) {
   return (
     <div className='w-80 flex justify-center items-center border border-[#200a3e43] py-2 px-3 rounded-lg my-1'>
       <p className='w-full flex gap-1 items-center font-light justify-between'>
-        <span className='flex flex-col justify-center'>
+        <span className='flex flex-col justify-center text-sm'>
           <span className='flex items-center gap-1'>
             <i className='w-5 h-5 flex justify-center items-center'>{ICONS.date.border}</i>
             2/1/24
