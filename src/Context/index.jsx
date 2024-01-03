@@ -25,6 +25,12 @@ export const initilizeLocalStorage = () => {
 }
 
 export function ShoppingCartProvider({ children }) {
+  /* My account */
+  const [account, setAccount] = useState({})
+
+  /* Sign out */
+  const [signOut, setSignOut] = useState(false)
+
   /* Shopping Cart - Increase quantity */
   const [count, setCount] = useState(0)
 
@@ -119,7 +125,11 @@ export function ShoppingCartProvider({ children }) {
         setSearchByTitle,
         filteredItems,
         searchByCategory,
-        setSearchByCategory
+        setSearchByCategory,
+        account,
+        setAccount,
+        signOut,
+        setSignOut
       }}>
       {children}
     </ShoppingCartContext.Provider>

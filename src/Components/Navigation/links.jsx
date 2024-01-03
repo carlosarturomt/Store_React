@@ -46,11 +46,11 @@ const linksAccount = [
     /*  icon_border: ICONS.account.border,
      icon_fill: ICONS.account.fill */
   },
-  {
+  /* {
     label: 'Sign in',
     route: '/sign-in',
     icon: ''
-  }
+  } */
 ]
 
 export { linksNavBar, linksAccount }

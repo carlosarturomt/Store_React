@@ -35,6 +35,43 @@ export default function Navigation() {
   const location = useLocation().pathname;
   const context = useContext(ShoppingCartContext)
 
+  // Sign Out
+  const signOut = localStorage.getItem('sign-out')
+  const parsedSignOut = JSON.parse(signOut)
+  const isUserSignOut = context.signOut || parsedSignOut
+
+  const handleSignOut = () => {
+    const stringifiedSignOut = JSON.stringify(true)
+    localStorage.setItem('sign-out', stringifiedSignOut)
+    context.setSignOut(true)
+  }
+
+  const renderView = () => {
+    if (isUserSignOut) {
+      return (
+        <NavLink
+          to='/sign-in'
+          className={` flex items-center justify-center material-symbols-outlined my-2 py-1 px-2 rounded-md text-1xl hover:hover:font-medium`}
+          onClick={() => handleSignOut()}
+        >
+          <span
+          >Sign in</span>
+        </NavLink>
+      )
+    } else {
+      { linksAccount.map((data) => <NavLinkIcons data={data} key={data.label} />) }
+
+      <NavLink
+        to='/sign-in'
+        className={` flex items-center justify-center material-symbols-outlined my-2 py-1 px-2 rounded-md text-1xl hover:hover:font-medium`}
+        onClick={() => handleSignOut()}
+      >
+        <span
+        >Sign out</span>
+      </NavLink>
+    }
+  }
+
   return (
     <nav className="flex justify-between items-center w-full text-sm font-light px-4 fixed z-10 top-0 bg-white">
       <ul className="flex items-center gap-2">
@@ -61,8 +98,7 @@ export default function Navigation() {
         {linksNavBar.map((data) => <NavLinkIcons data={data} key={data.label} />)}
       </ul>
       <ul className="flex items-center gap-2">
-        {linksAccount.map((data) => <NavLinkIcons data={data} key={data.label} />)}
-
+        {renderView()}
         <NavLink
           to='/'
           className={`font-semibold text-base flex items-center material-symbols-outlined my-2 py-1 px-2 rounded-md`}

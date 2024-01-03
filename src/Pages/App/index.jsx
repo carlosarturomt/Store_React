@@ -7,6 +7,7 @@ import MyOrders from "../MyOrders"
 import Error404 from "../Error"
 import Navigation from "../../Components/Navigation"
 import CheckoutSideMenu from "../../Components/CheckoutSideMenu"
+import SignIn from "../SignIn"
 
 const AppRoutes = () => {
   let routes = useRoutes([
@@ -21,6 +22,7 @@ const AppRoutes = () => {
     { path: '/my-orders', element: <MyOrders /> },
     { path: '/my-orders/last', element: <MyOrder /> },
     { path: '/my-orders/:id', element: <MyOrder /> },
+    { path: '/sign-in', element: <SignIn /> },
     { path: '/*', element: <Error404 /> }
   ])
 
