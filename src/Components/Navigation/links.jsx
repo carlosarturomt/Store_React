@@ -31,7 +31,7 @@ const linksNavBar = [
 
 const linksAccount = [
   {
-    label: 'artur@shopi.com',
+    label: 'auser@shopi.com',
     route: '/my-account',
     icon: ''
   },
