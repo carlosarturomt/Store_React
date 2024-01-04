@@ -30,11 +30,11 @@ const linksNavBar = [
 ]
 
 const linksAccount = [
-  {
-    label: 'auser@shopi.com',
+  /* {
+    label: 'user@shopi.com',
     route: '/my-account',
     icon: ''
-  },
+  }, */
   {
     label: 'My Orders',
     route: '/my-orders',

@@ -33,11 +33,6 @@ export default function ProductDetail() {
           </span>
         </p>
         <span className='text-xs mt-3'>{context.productToShow.description}.</span>
-
-        <button
-          className='mt-3 bg-[#40147c] hover:bg-[#200a3e] text-white rounded-lg py-1'
-          onClick={() => context.setCount(context.count + 1)}
-        >Add to Cart</button>
       </div>
 
     </aside>

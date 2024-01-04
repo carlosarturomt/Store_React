@@ -35,6 +35,14 @@ export default function Navigation() {
   const location = useLocation().pathname;
   const context = useContext(ShoppingCartContext)
 
+  //Account
+  const account = localStorage.getItem('account')
+  const parsedAccount = JSON.parse(account)
+  // Has an account
+  const noAccountInLocalStorage = parsedAccount ? Object.keys(parsedAccount).length === 0 : true
+  const noAccountInLocalState = context.account ? Object.keys(context.account).length === 0 : true
+  const hasUserAnAccount = !noAccountInLocalStorage || !noAccountInLocalState
+
   // Sign Out
   const signOut = localStorage.getItem('sign-out')
   const parsedSignOut = JSON.parse(signOut)
@@ -47,7 +55,29 @@ export default function Navigation() {
   }
 
   const renderView = () => {
-    if (isUserSignOut) {
+    if (hasUserAnAccount && !isUserSignOut) {
+      return (
+        <>
+          <p
+            className={`flex items-center justify-center material-symbols-outlined my-2 py-1 px-2 rounded-md text-1xl`}
+          >
+            <span className="text-[#200a3e9e]"
+            >{parsedAccount?.email}</span>
+          </p>
+
+          {linksAccount.map((data) => <NavLinkIcons data={data} key={data.label} />)}
+
+          <NavLink
+            to='/sign-in'
+            className={` flex items-center justify-center material-symbols-outlined my-2 py-1 px-2 rounded-md text-1xl hover:hover:font-medium`}
+            onClick={() => handleSignOut()}
+          >
+            <span
+            >Sign out</span>
+          </NavLink>
+        </>
+      )
+    } else {
       return (
         <NavLink
           to='/sign-in'
@@ -57,18 +87,8 @@ export default function Navigation() {
           <span
           >Sign in</span>
         </NavLink>
-      )
-    } else {
-      { linksAccount.map((data) => <NavLinkIcons data={data} key={data.label} />) }
 
-      <NavLink
-        to='/sign-in'
-        className={` flex items-center justify-center material-symbols-outlined my-2 py-1 px-2 rounded-md text-1xl hover:hover:font-medium`}
-        onClick={() => handleSignOut()}
-      >
-        <span
-        >Sign out</span>
-      </NavLink>
+      )
     }
   }
 
