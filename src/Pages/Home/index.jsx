@@ -10,7 +10,7 @@ export default function Home() {
   const renderView = () => {
     if (context.filteredItems?.length > 0) {
       return context.filteredItems?.map((item => <Card key={item.id} data={item} />))
-    } else return <>We don't have anything :(</>
+    } else return <>We don't have anything u.u</>
   }
 
   return (
